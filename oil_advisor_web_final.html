@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asesor de Aceite para tu Coche</title>
+  <style>
+    :root{--bg:#0b1020;--card:#111833;--muted:#8ea0c3;--text:#e9eefb;--accent:#5b8cff}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:linear-gradient(120deg,#0b1020,#0a1533);color:var(--text)}
+    .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    h1{font-weight:800;letter-spacing:.2px;margin:0;font-size:clamp(22px,2.8vw,34px)}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .p20{padding:20px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input,select{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#0f1530;color:var(--text)}
+    input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,140,255,.15)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .btn{appearance:none;border:0;background:var(--accent);color:#fff;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn.secondary{background:#1c254a}
+    .muted{color:var(--muted);font-size:13px}
+    .badge{display:inline-flex;gap:6px;background:#0e1a3d;border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;font-size:12px;color:#00EAFF}
+    .kvs{display:flex;flex-wrap:wrap;gap:10px}
+    .hr{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border-bottom:1px solid rgba(255,255,255,.08);padding:10px;text-align:left;font-size:14px}
+    .table th{color:#bcd0ff}
+    .hint{font-size:12px;color:#cbd5ff}
+    @media (max-width:860px){.row,.row3{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🔧 Asesor de Aceite para tu Coche</h1>
+      <div class="kvs">
+        <span class="badge">v1.4 · offline</span>
+        <span class="badge">ACEA/OEM simplificado</span>
+        <span class="badge">Autocomplete</span>
+      </div>
+    </header>
+
+    <div class="card p20" style="margin-bottom:22px">
+      <div class="row">
+        <div>
+          <label>Marca</label>
+          <input id="make" placeholder="p. ej., Volkswagen" list="dl-makes" />
+          <datalist id="dl-makes"></datalist>
+        </div>
+        <div>
+          <label>Modelo</label>
+          <input id="model" placeholder="p. ej., Golf" list="dl-models" />
+          <datalist id="dl-models"></datalist>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Año</label>
+          <input id="year" type="number" min="1980" max="2100" placeholder="2019" list="dl-years" />
+          <datalist id="dl-years"></datalist>
+        </div>
+        <div>
+          <label>Código de motor (opcional)</label>
+          <input id="engine" placeholder="p. ej., OM654, B48…" list="dl-engines" />
+          <datalist id="dl-engines"></datalist>
+        </div>
+      </div>
+      <div class="row3">
+        <div>
+          <label>Combustible</label>
+          <select id="fuel">
+            <option value="gasolina">Gasolina</option>
+            <option value="diesel">Diésel</option>
+          </select>
+        </div>
+        <div>
+          <label>¿Tiene DPF/GPF?</label>
+          <select id="dpf">
+            <option value="auto" selected>Auto (según base de datos)</option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div>
+          <label>Clima</label>
+          <select id="climate">
+            <option value="muy_frio">Muy frío</option>
+            <option value="templado" selected>Templado</option>
+            <option value="calido">Cálido</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Uso</label>
+          <select id="uso">
+            <option value="urbano">Urbano</option>
+            <option value="mixto" selected>Mixto</option>
+            <option value="autopista">Autopista</option>
+            <option value="deportivo">Deportivo</option>
+          </select>
+        </div>
+        <div>
+          <label>Homologaciones OEM conocidas (opcional)</label>
+          <input id="oem" placeholder="Separadas por coma: VW 504.00/507.00, ACEA C3…" />
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:10px">
+        <button class="btn" id="btnRecommend">Recomendar aceite</button>
+        <button class="btn secondary" id="btnReset">Limpiar</button>
+      </div>
+    </div>
+
+    <section class="card p20 result" id="result" hidden>
+      <div class="kvs" id="chips"></div>
+      <div class="hr"></div>
+      <div id="carLine" class="muted" style="margin-bottom:10px"></div>
+      <div id="explain" class="hint"></div>
+    </section>
+
+    <section class="card p20" style="margin-top:22px">
+      <details>
+        <summary><strong>Base de datos incluida</strong></summary>
+        <p class="muted">La tabla se alimenta de todos los CARS (base + extra).</p>
+        <table class="table" id="dbTable"></table>
+      </details>
+    </section>
+
+    <section class="card p20" style="margin-top:22px">
+      <details>
+        <summary><strong>Catálogo de aceites (demo)</strong></summary>
+        <table class="table" id="oilTable"></table>
+      </details>
+    </section>
+  </div>
+
+  <!-- 1) Define la base vacía para que cars_extra.js pueda hacer push sin romper -->
+  <script defer>
+    window.CARS = window.CARS || [];
+  </script>
+
+  <!-- 2) Datos: coches extra (solo datos, sin lógica) -->
+  <script src="cars_extra.js" defer></script>
+
+  <!-- 3) Lógica y UI -->
+  <script src="app.js" defer></script>
+</body>
+</html>
