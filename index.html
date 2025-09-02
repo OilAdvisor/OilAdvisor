@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenido - Asesor de Aceite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holiday - Asesor de Aceite</title>
   <style>
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:linear-gradient(120deg,#0b1020,#0a1533);color:#e9eefb;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center}
-    .cta{margin-top:30px}
-    a.button{display:inline-block;padding:12px 20px;background:#5b8cff;color:#fff;text-decoration:none;border-radius:12px;font-weight:700}
-    h1{font-size:clamp(26px,5vw,40px);margin-bottom:16px}
-    p{max-width:600px;margin:0 auto 20px;color:#8ea0c3}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:#f5f6fa;color:#1a1a1a}
+    a{text-decoration:none}
+    .hero{max-width:1100px;margin:40px auto;padding:20px;background:#fff;border-radius:16px;display:flex;align-items:center;gap:30px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+    .hero img{width:50%;border-radius:12px;object-fit:cover}
+    .hero h1{margin-top:0;margin-bottom:12px;font-size:clamp(26px,5vw,42px)}
+    .hero p{margin-top:0;margin-bottom:20px;color:#444}
+    .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600}
+    .btn.primary{background:#0d6efd;color:#fff}
+    .btn.secondary{border:2px solid #0d6efd;color:#0d6efd;margin-left:10px}
+    .section{max-width:1100px;margin:60px auto;padding:0 20px}
+    .cards{display:flex;flex-wrap:wrap;gap:20px;margin-top:30px}
+    .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.04);flex:1;min-width:250px}
+    .card h3{margin-top:0;margin-bottom:12px}
+    .card p{margin-top:0;margin-bottom:20px;color:#555}
+    @media(max-width:860px){.hero{flex-direction:column}.hero img{width:100%}}
   </style>
 </head>
 <body>
-  <main>
-    <h1>Asesor de Aceite para tu Coche</h1>
-    <p>Descubre rápidamente qué lubricante necesita tu vehículo según marca, modelo, año y condiciones de uso. Nuestro asistente utiliza una base de datos simplificada ACEA/OEM para orientarte.</p>
-    <div class="cta">
-      <a class="button" href="finder.html">Comenzar</a>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Holiday</h1>
+      <p>Guías técnicas, especificaciones y procedimientos claros para cuidar el motor de tu vehículo. Contenido imparcial y verificable.</p>
+      <a href="finder.html" class="btn primary">Comenzar: cambio de aceite</a>
+      <a href="#" class="btn secondary">Descargar checklist</a>
     </div>
-  </main>
+    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=720&q=80" alt="Auto deportivo" />
+  </section>
+
+  <section class="section">
+    <h2>Procedimientos esenciales</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Cambio de aceite paso a paso</h3>
+        <p>Secuencia técnica, herramientas y par de apriete para un correcto servicio.</p>
+        <a href="cambio-aceite.html" class="btn primary">Ver guía</a>
+      </article>
+      <article class="card">
+        <h3>Cambio de filtro de aceite</h3>
+        <p>Cuándo y cómo sustituir el elemento filtrante y proteger el motor.</p>
+        <a href="cambio-filtro-aceite.html" class="btn primary">Ver guía</a>
+      </article>
+      <article class="card">
+        <h3>Reciclaje de aceite usado</h3>
+        <p>Normativa básica y puntos de recogida para un descarte seguro.</p>
+        <a href="reciclaje-aceite.html" class="btn primary">Ver guía</a>
+      </article>
+    </div>
+  </section>
 </body>
 </html>
