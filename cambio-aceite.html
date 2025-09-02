@@ -5,20 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cambio de Aceite</title>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;margin:40px;padding:0;color:#1a1a1a}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:#f5f6fa;color:#1a1a1a;line-height:1.6}
     a{color:#0d6efd;text-decoration:none}
+    .layout{max-width:1200px;margin:40px auto;display:flex;gap:40px;padding:0 20px}
+    .content{flex:1;background:#fff;padding:30px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+    .sidebar{width:260px;background:#fff;padding:20px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.05);height:fit-content}
+    .sidebar h2{margin-top:0;font-size:18px}
+    .intro{background:#f0f2f5;padding:15px;border-radius:8px;list-style:disc;margin:20px 0}
+    .intro li{margin-bottom:8px}
+    h1{margin-top:0}
   </style>
 </head>
 <body>
-  <h1>Cambio de Aceite</h1>
-  <h2>Cambio de aceite – Guía completa y profesional</h2>
-  <p>Referencia técnica con fundamentos del lubricante, intervalos, materiales, seguridad y procedimiento paso a paso, para realizar un cambio de aceite correcto y seguro.</p>
-  <p><em>Ilustración 3D de cambio de aceite</em></p>
-  <p><strong>Dificultad:</strong> baja–media · <strong>Tiempo estimado:</strong> 45–90 min · <strong>Coste:</strong> variable (aceite + filtro + consumibles)</p>
-  <p><strong>Equipo de protección:</strong> guantes, gafas. Trabajar con motor tibio, zona ventilada y vehículo estable.</p>
-  <p><strong>Comprobar siempre:</strong> manual del fabricante (viscosidad, normas API/ACEA/ILSAC, cantidad, pares de apriete y procedimiento del filtro).</p>
+  <main class="layout">
+    <article class="content">
+      <h1>Cambio de Aceite</h1>
+      <h2>Cambio de aceite – Guía completa y profesional</h2>
+      <p>Referencia técnica con fundamentos del lubricante, intervalos, materiales, seguridad y procedimiento paso a paso, para realizar un cambio de aceite correcto y seguro.</p>
+      <p><em>Ilustración 3D de cambio de aceite</em></p>
+      <ul class="intro">
+        <li>Dificultad: baja–media</li>
+        <li>Tiempo estimado: 45–90 min</li>
+        <li>Coste: variable (aceite + filtro + consumibles)</li>
+        <li>Equipo de protección: guantes, gafas. Trabajar con motor tibio, zona ventilada y vehículo estable.</li>
+        <li>Comprobar siempre: manual del fabricante (viscosidad, normas API/ACEA/ILSAC, cantidad, pares de apriete y procedimiento del filtro).</li>
+      </ul>
 
-  <h2>1) Fundamentos del aceite de motor</h2>
+      <h2>1) Fundamentos del aceite de motor</h2>
   <h3>Viscosidad SAE</h3>
   <p>La designación xW-y (p.ej., 5W-30) describe el comportamiento en frío (W) y a alta temperatura. Un 0W/5W fluye mejor en arranques fríos; el segundo número (30/40) indica la viscosidad a 100 °C.</p>
   <ul>
@@ -106,6 +120,16 @@
     <li><a href="#">Tabla de viscosidades (PDF)</a></li>
   </ul>
 
-  <p><a href="index.html">Volver al inicio</a></p>
+      <p><a href="index.html">Volver al inicio</a></p>
+    </article>
+    <aside class="sidebar">
+      <h2>Limitaciones</h2>
+      <ul>
+        <li>Guía general, no sustituye el manual del fabricante.</li>
+        <li>Verifica pares de apriete y especificaciones antes de cada servicio.</li>
+        <li>Si no estás seguro, acude a un profesional cualificado.</li>
+      </ul>
+    </aside>
+  </main>
 </body>
 </html>
