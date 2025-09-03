@@ -3,7 +3,8 @@
 
 // --- Datos de aceites demo ---
 const OILS = [
-  {brand:"Liqui Moly TopTec 4200", viscosity:"5W-30", specs:["VW 504.00/507.00","ACEA C3","MB 229.51"]},
+  {brand:"Liqui Moly TopTec 4200", viscosity:"5W-30", specs:["VW 504.00/507.00","ACEA C3","MB 229.51"],document.body.innerHTML += '<a href="https://amzn.to/4p2voh2">Enlace Afiliados Amazón</a>';
+},
   {brand:"Castrol Edge 0W-30 LL", viscosity:"0W-30", specs:["BMW LL-04","MB 229.52","ACEA C3"]},
   {brand:"Motul 8100 X-clean", viscosity:"5W-40", specs:["ACEA C3","MB 229.51","BMW LL-04"]},
   {brand:"Total Quartz Ineo ECS", viscosity:"5W-30", specs:["ACEA C2","PSA B71 2290"]},
