@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://OilAdvisor.github.io/OilAdvisor/sitemap.txt
+Sitemap: https://oiladvisor.github.io/OilAdvisor/sitemap.xml
