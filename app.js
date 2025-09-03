@@ -3,12 +3,12 @@
 
 // --- Datos de aceites demo ---
 const OILS = [
-  {brand:"Liqui Moly TopTec 4200", viscosity:"5W-30", specs:["VW 504.00/507.00","ACEA C3","MB 229.51"]},
-  {brand:"Castrol Edge 0W-30 LL", viscosity:"0W-30", specs:["BMW LL-04","MB 229.52","ACEA C3"]},
-  {brand:"Motul 8100 X-clean", viscosity:"5W-40", specs:["ACEA C3","MB 229.51","BMW LL-04"]},
-  {brand:"Total Quartz Ineo ECS", viscosity:"5W-30", specs:["ACEA C2","PSA B71 2290"]},
-  {brand:"Mobil 1 ESP x2", viscosity:"0W-20", specs:["ACEA C5","VW 508.00/509.00","Porsche C20"]},
-  {brand:"Ravenol DXG", viscosity:"5W-30", specs:["API SP","ILSAC GF-6","dexos1 Gen3"]},
+  {brand:"Liqui Moly TopTec 4200", viscosity:"5W-30", specs:["VW 504.00/507.00","ACEA C3","MB 229.51"], url:"https://amzn.to/4p2voh2"},
+  {brand:"Castrol Edge 0W-30 LL", viscosity:"0W-30", specs:["BMW LL-04","MB 229.52","ACEA C3"], url:"https://amzn.to/463S9Zg"},
+  {brand:"Motul 8100 X-clean", viscosity:"5W-40", specs:["ACEA C3","MB 229.51","BMW LL-04"], url:"https://amzn.to/4lZ5UP4"},
+  {brand:"Total Quartz Ineo ECS", viscosity:"5W-30", specs:["ACEA C2","PSA B71 2290"], url:"https://amzn.to/3JD7p89"},
+  {brand:"Mobil 1 ESP x2", viscosity:"0W-20", specs:["ACEA C5","VW 508.00/509.00","Porsche C20"], url:"https://amzn.to/4lYWp2f"},
+  {brand:"Ravenol DXG", viscosity:"5W-30", specs:["API SP","ILSAC GF-6","dexos1 Gen3"], url:"https://amzn.to/3VwTd2U"},
 ];
 
 // --- Parámetros ---
@@ -141,7 +141,14 @@ function renderOils(){
   table.appendChild(head);
   OILS.forEach(o=>{
     const tr = el("tr");
-    tr.appendChild(el("td",{textContent:o.brand}));
+    const tdBrand = el("td");
+    tdBrand.appendChild(el("a",{
+      href:o.url,
+      textContent:o.brand,
+      target:"_blank",
+      rel:"noopener noreferrer"
+    }));
+    tr.appendChild(tdBrand);
     tr.appendChild(el("td",{textContent:o.viscosity}));
     tr.appendChild(el("td",{textContent:o.specs.join(", ")}));
     table.appendChild(tr);
