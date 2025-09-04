@@ -5,31 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asesor de Aceite para tu Coche</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    :root{--bg:#f5f6fa;--card:#fff;--muted:#555;--text:#1a1a1a;--accent:#0d6efd}
-    .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
-    h1{font-weight:800;letter-spacing:.2px;margin:0;font-size:clamp(22px,2.8vw,34px)}
-    .card{background:var(--card);border:1px solid rgba(0,0,0,.05);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
-    .p20{padding:20px}
-    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-    input,select{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.1);background:#fff;color:var(--text)}
-    input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(13,110,253,.15)}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;cursor:pointer;border:0}
-    .btn.primary{background:var(--accent);color:#fff}
-    .btn.secondary{border:2px solid var(--accent);color:var(--accent);background:transparent}
-    .muted{color:var(--muted);font-size:13px}
-    .badge{display:inline-flex;gap:6px;background:var(--bg);border:1px solid rgba(0,0,0,.1);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--text)}
-    .kvs{display:flex;flex-wrap:wrap;gap:10px}
-    .hr{height:1px;background:rgba(0,0,0,.08);margin:14px 0}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border-bottom:1px solid rgba(0,0,0,.08);padding:10px;text-align:left;font-size:14px}
-    .table th{color:var(--text)}
-    .hint{font-size:12px;color:var(--muted)}
-    @media (max-width:860px){.row,.row3{grid-template-columns:1fr}}
-  </style>
 </head>
 <body>
   <div class="wrap">
@@ -42,7 +17,7 @@
       </div>
     </header>
 
-    <div class="card p20" style="margin-bottom:22px">
+    <div class="card p20 mb-22">
       <div class="row">
         <div>
           <label>Marca</label>
@@ -107,7 +82,7 @@
           <input id="oem" placeholder="Separadas por coma: VW 504.00/507.00, ACEA C3…" />
         </div>
       </div>
-      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:10px">
+      <div class="button-row">
         <button class="btn primary" id="btnRecommend">Recomendar aceite</button>
         <button class="btn secondary" id="btnReset">Limpiar</button>
       </div>
@@ -116,11 +91,11 @@
     <section class="card p20 result" id="result" hidden>
       <div class="kvs" id="chips"></div>
       <div class="hr"></div>
-      <div id="carLine" class="muted" style="margin-bottom:10px"></div>
+      <div id="carLine" class="muted mb-10"></div>
       <div id="explain" class="hint"></div>
     </section>
 
-    <section class="card p20" style="margin-top:22px">
+    <section class="card p20 mt-22">
       <details>
         <summary><strong>Base de datos incluida</strong></summary>
         <p class="muted">La tabla se alimenta de todos los CARS (base + extra).</p>
@@ -128,7 +103,7 @@
       </details>
     </section>
 
-    <section class="card p20" style="margin-top:22px">
+    <section class="card p20 mt-22">
       <details>
         <summary><strong>Catálogo de aceites (demo)(enlaces Amazón Afiliados)</strong></summary>
         <table class="table" id="oilTable"></table>
